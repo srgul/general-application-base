@@ -9,14 +9,22 @@ import {
 } from '@nestjs/common';
 import { TodoDTO } from './todo.dto';
 import { todos } from './todo-mock';
+import { TodoService } from './todo.service';
 
 let todosData = todos;
 
 @Controller('todos')
 export class TodoController {
+  constructor(private readonly todoService: TodoService) {}
+
   @Get()
   getTodos(): TodoDTO[] {
-    return todosData;
+    return this.todoService.GetAll();
+  }
+
+  @Get(':id')
+  getTodo(@Param('id') id: string): TodoDTO {
+    return this.todoService.findOne(id);
   }
 
   @Post()
