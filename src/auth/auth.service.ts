@@ -2,6 +2,7 @@ import { Injectable, NotAcceptableException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { User } from '../users/schemas/user.schema';
 
 @Injectable()
 export class AuthService {
@@ -21,6 +22,11 @@ export class AuthService {
         }
         return null;
     }
+
+    async validateUserById(userId: string): Promise<User> {
+        return this.usersService.findOne(userId);
+    }
+
     async login(user: any) {
         const payload = { username: user.username, sub: user._id };
         return {
