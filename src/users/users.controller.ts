@@ -14,14 +14,13 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './schemas/user.schema';
 import * as bcrypt from 'bcrypt';
 import { ApiTags } from '@nestjs/swagger';
-import {JwtAuthGuard} from "../common/jwt-auth.guard";
+import { JwtAuthGuard } from '../common/jwt-auth.guard';
 
 @ApiTags('users')
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
-    @UseGuards(JwtAuthGuard)
     @Post('signup')
     async create(@Body() createUserDto: CreateUserDto) {
         const saltedOrRounds = 10;
