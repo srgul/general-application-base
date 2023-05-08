@@ -7,7 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersModule } from '../users/users.module';
 import { UserSchema } from '../users/schemas/user.schema';
 import { LocalStrategy } from './local.auth';
-import { JwtStrategy } from '../common/jwt.strategy';
+import { JwtStrategy } from '../common/security/jwt.strategy';
 
 @Module({
     imports: [

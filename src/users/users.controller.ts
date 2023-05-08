@@ -14,7 +14,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './schemas/user.schema';
 import * as bcrypt from 'bcrypt';
 import { ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from '../common/jwt-auth.guard';
+import { JwtAuthGuard } from '../common/security/jwt-auth.guard';
 
 @ApiTags('users')
 @Controller('users')
