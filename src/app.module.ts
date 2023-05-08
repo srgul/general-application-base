@@ -9,7 +9,6 @@ import { AuthModule } from './auth/auth.module';
 import { EmailController } from './helper/email/email.controller';
 import { EmailService } from './helper/email/email.service';
 import { ConfigModule } from '@nestjs/config';
-import { ModuleDriverModule } from './module-driver/module-driver.module';
 
 @Module({
     imports: [
@@ -19,7 +18,6 @@ import { ModuleDriverModule } from './module-driver/module-driver.module';
         ConfigModule.forRoot({
             envFilePath: ['.env'],
         }),
-        ModuleDriverModule,
     ],
     controllers: [AppController, TodoController, EmailController],
     providers: [AppService, TodoService, EmailService],
