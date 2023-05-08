@@ -28,6 +28,7 @@ export class UsersController {
             createUserDto.password,
             saltedOrRounds,
         );
+        createUserDto.claim = 'user';
         return this.usersService.create(createUserDto);
     }
 

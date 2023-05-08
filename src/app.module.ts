@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { EmailController } from './helper/email/email.controller';
 import { EmailService } from './helper/email/email.service';
 import { ConfigModule } from '@nestjs/config';
+import { ClaimsModule } from './claims/claims.module';
 
 @Module({
     imports: [
@@ -18,6 +19,7 @@ import { ConfigModule } from '@nestjs/config';
         ConfigModule.forRoot({
             envFilePath: ['.env'],
         }),
+        ClaimsModule,
     ],
     controllers: [AppController, TodoController, EmailController],
     providers: [AppService, TodoService, EmailService],
